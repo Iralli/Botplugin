@@ -54,7 +54,7 @@
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
-        $.get("https://rawgit.com/Iralli/Bot/master/langIndex.json", function (json) {
+        $.get("https://rawgit.com/Iralli/Botplugin/master/langIndex.json", function (json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== "undefined") {
                 langIndex = json;
@@ -183,9 +183,9 @@
         status: true,
         name: "HJVbot",
         loggedInID: null,
-        scriptLink: "https://dl-web.dropbox.com/get/TessiBot13.js?sjid=144&_subject_uid=391231902&w=AAD3eF96YcyHGfHBExIkRL5KuAsQ_eUQbIVGVx0YpICj9A",
+        scriptLink: "https://rawgit.com/Iralli/Botplugin/edit/master/bot.js",
         cmdLink: "http://git.io/245Ppg",
-        chatLink: "https://rawgit.com/Iralli/Bot/master/cz.json",
+        chatLink: "https://rawgit.com/Iralli/Botplugin/master/cz.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -193,7 +193,7 @@
         settings: {
             botName: "HJVbot",
             language: "czech",
-            chatLink: "https://rawgit.com/Iralli/Bot/master/cz.json",
+            chatLink: "https://rawgit.com/Iralli/Botplugin/master/cz.json",
             startupCap: 200, // 1-200
             startupVolume: 0, // 0-100
             startupEmoji: true, // true or false
