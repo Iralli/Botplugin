@@ -183,7 +183,7 @@
         status: true,
         name: "HJVbot",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/Iralli/Botplugin/edit/master/bot.js",
+        scriptLink: "https://rawgit.com/Iralli/Botplugin/master/bot.js",
         cmdLink: "http://git.io/245Ppg",
         chatLink: "https://rawgit.com/Iralli/Botplugin/master/cz.json",
         chat: null,
