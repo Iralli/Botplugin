@@ -192,7 +192,7 @@
         retrieveFromStorage: retrieveFromStorage,
         settings: {
             botName: "HJVbot",
-            language: "czech",
+            language: "french",
             chatLink: "https://rawgit.com/Iralli/Botplugin/master/cz.json",
             startupCap: 200, // 1-200
             startupVolume: 0, // 0-100
