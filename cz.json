@@ -9,7 +9,7 @@
 
 
     "welcome": "/me Vítej @%%NAME%%",
-    "welcomeback": "/me Vítej zpět, @%%NAME%%",
+    "welcomeback": "/me Vítej zpět @%%NAME%%",
     "songknown": "/me @%%NAME%%, tento song je již v DJ historii.",
     "timelimit": "/me @%%NAME%%, tvůj song je delší než %%MAXLENGTH%% minut, proto byl přeskočen.",
     "permissionownsong": "/me :up: @%%NAME%% má oprávnění hrát svou vlastní produkci!",
