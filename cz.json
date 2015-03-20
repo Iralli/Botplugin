@@ -83,7 +83,7 @@
     "afkstatusreset": "/me [@%%NAME%%] Obnovil/a AFK limit hráči @%%USERNAME%%.",
     "inactivefor": "/me [@%%NAME%%] @%%USERNAME%% je v roomce po dobu %%TIME%%.",
     "autowoot": "/me Autowoot: http://origem-woot.com/",
-    "brandambassador": "/me Brand Ambassador slouží jako "hlas" hráčů plug.dj. Podporují akce, pomáhají komunitám, sdílejí je na plug.dj, který je celosvětový. Pro více informací: https://plug.dj/ba.",
+    "brandambassador": "/me Brand Ambassador slouží jako hlas hráčů plug.dj. Podporují akce, pomáhají komunitám, sdílejí je na plug.dj, který je celosvětový. Pro více informací: https://plug.dj/ba.",
     "bouncerplusrank": "/me [@%%NAME%%] Musíš být manažer, abys mohl/a aktivovat Bouncer+.",
     "chatcleared": "/me [@%%NAME%%] Promazal/a chat.",
     "deletechat": "/me [@%%NAME%%] Promazal/a chat od hráče %%USERNAME%%.",
@@ -97,7 +97,7 @@
     "emojilist": "/me Seznam emotikonů: %%LINK%%",
     "notinwaitlist": "/me @%%NAME%%, nejsi ve frontě.",
     "eta": "/me @%%NAME%% budeš na řadě přibližně za %%TIME%%.",
-    "facebook": "/me Náš facebook: https://www.facebook.com/pages/Hudba-je-V%C5%A1etko-CZSK/1492409914332239?fref=ts"
+    "facebook": "/me Náš facebook: https://www.facebook.com/pages/Hudba-je-V%C5%A1etko-CZSK/1492409914332239?fref=ts",
     "starterhelp": "/me Tenhle obrázek ti pomůže, jak začít na plugu: %%LINK%%",
     "roulettejoin": "/me @%%NAME%%  přihlásil ses do rulety! (napiš !leave pokud ji chceš opustit.)",
     "jointime": "/me [@%%NAMEFROM%%] @%%USERNAME%% je v místnosti %%TIME%%.",
