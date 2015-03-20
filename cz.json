@@ -99,7 +99,7 @@
     "eta": "/me @%%NAME%% budeš na řadě přibližně za %%TIME%%.",
     "facebook": "/me Náš facebook: https://www.facebook.com/pages/Hudba-je-V%C5%A1etko-CZSK/1492409914332239?fref=ts",
     "starterhelp": "/me Tenhle obrázek ti pomůže, jak začít na plugu: %%LINK%%",
-    "roulettejoin": "/me @%%NAME%%  přihlásil ses do rulety! (napiš !leave pokud ji chceš opustit.)",
+    "roulettejoin": "/me @%%NAME%%  přihlásil/a ses do rulety! (napiš !leave pokud ji chceš opustit.)",
     "jointime": "/me [@%%NAMEFROM%%] @%%USERNAME%% je v místnosti %%TIME%%.",
     "kickrank": "/me [@%%NAME%%] nemůžeš vyhodit lidi, kteří mají vyšší staff než ty!",
     "kick": "/me [@%%NAME%%], @%%USERNAME%% byl/a vyhozen/a z komunity na %%TIME%% minut.",
