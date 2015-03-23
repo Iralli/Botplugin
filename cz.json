@@ -143,5 +143,5 @@
     "website": "/me Prosím navštivte naše webovky: %%LINK%%",
     "youtube": "/me [%%NAME%%] Link na náš youtube: %%LINK%%",
     "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M.",
-    "ego": "/me %%NAME%% *EGO UP*"
+    "ego": "/me @%%NAME%% *EGO UP*"
 }
