@@ -124,7 +124,7 @@
     "pong": "/me Pong!",
     "reload": "/me Za chvilku jsem zpět.",
     "removenotinwl": "/me [@%%NAME%%] Uživatel @%%USERNAME%% není ve frontě.",
-    "roomrules": "/me Pravidla roomky: http://bitly.com/HJVrules,
+    "roomrules": "/me Pravidla roomky: %%LINK%%,
     "sessionstats": "/me [@%%NAME%%] Celkem wootů: %%WOOTS%%, celkem mehů: %%MEHS%%, celkem přidání: %%GRABS%%.",
     "skip": "/me [%%NAME%% Použil/a skip.]",
     "madeby": "/me Tento bot byl vytvořen %%NAME%% a upraven Tessi Tess",
