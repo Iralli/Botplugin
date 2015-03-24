@@ -143,8 +143,6 @@
     "website": "/me Prosím navštivte naše webovky: %%LINK%%",
     "youtube": "/me [%%NAME%%] Link na náš youtube: %%LINK%%",
     "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M.",
-    "ego": "/me @%%NAMEFROM%% *EGO UP*"
-    "havebitch": "/me Napiš !bitch @user a můžeš mít svou osobní bitch."
-    "nouserbitch": "/me Ten/ta, kdo měl/a být tvá bitch, zbaběle utekl/a."
-    "selfbitch": "/me Přece nebudeš svoje osobní bitch, když tu jsou i jiní. :/"
+    "ego": "/me Někdo tu má *EGO UP*"
+
 }
