@@ -144,6 +144,6 @@
     "youtube": "/me [%%NAME%%] Link na náš youtube: %%LINK%%",
     "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M.",
     "ego": "/me %%NAME%%  *EGO UP*",
-    "staff": /me Gratuluji @%%NAME%%. Získal/a jsi imaginární staff!
+    "staff": "/me Gratuluji @%%NAME%%. Získal/a jsi imaginární staff!"
 
 }
