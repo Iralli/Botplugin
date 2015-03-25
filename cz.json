@@ -143,7 +143,7 @@
     "website": "/me Prosím navštivte naše webovky: %%LINK%%",
     "youtube": "/me [%%NAME%%] Link na náš youtube: %%LINK%%",
     "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M.",
-    "ego": "/me %%NAME%%  *EGO UP*"
-    "afk": "/me Hlásím, že %%NAME%% bude na nějakou dobu AFK."
+    "ego": "/me %%NAME%%  *EGO UP*",
+    "afk": "/me Hlásím, že %%NAME%% bude na nějakou dobu AFK. :V: "
 
 }
