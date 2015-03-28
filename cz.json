@@ -144,21 +144,21 @@
     "youtube": "/me [%%NAME%%] Link na náš youtube: %%LINK%%",
     "songstatistics": "/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W/%%GRABS%%G/%%MEHS%%M.",
     "ego": "/me %%NAME%%  *EGO UP*",
-    "afk": "/me Hlásím, že %%NAME%% bude na nějakou dobu AFK. :V: "
-    "thomas": "/me ThømasB je milý a hodný člověk, ale nesmíte ho naštvat. Nesnáší lež, faleš a má rád ty, kteří mají rádi ho. Někdy bývá náladový, ale má rád srandu a dokáže rozesmát. Nesnáší škemrání o staff."
-    "germ": "/me GEЯM je náladový, ale nedává to najevo. S nikým se nesere a je nenápadný troll využívající sarkasmu a ironie… a to že hodně. Nesnáší, když má někdo jiný taky pandu. Miluje epickou hudbu, je anime maniak a spamer. Často bývá netrpělivý a nepozorný."    
-    "sumer": "me sumer4ever miluje jízdu na kole. Je klidné a mírumilovné povahy a snadno se nenaštve, ale když se to někomu podaří, tak to stojí za to… Občas je tvrdohlavý a je pro každou srandu. Má přezdívku sumec. >(°>__<°)<"
-    "nicmoc": "/me [NicMoc.Dj] je strašný flegmatik. Baví ho posilování, běh a občas hraje WOT. Nepokoušejte se ho naštvat nebo špatně skončíte. Ale jinak je s ním sranda a rád si dělá srandu z ostatních."
-    "bot": "/me HJV BøT je chat bot upravený, tak aby vystihoval naši roomku. Má spoustu „speciálních“ příkazů, které je potřeba brát s nadsázkou. Hlavním správcem je Tessi Tess. Je kompletně v češtině a má i speciální jazykový balíček, který vytvořil Iralli."
-    "dykobraz":
-    "franta": "/me Franta72 je někdy náladový týpek, ale vždy je nějaký způsob, jak si s ním pokecat. Nemá rád, když mu někdo lže. Miluje rap, ale poslouchá v podstatě všechno. Mezi jeho zájmy patří hokej a šipky."
-    "pesos": "/me #Pesos69 je totální blb, co neumí spolupracovat, je líný, neschopný a naprostý flegmatik. Jinak je s ním sranda, jenom občas lidem leze na nervy."
-    "tessi": "/me Tessi Tess nesnese samotu. Bývá náladová, a když je naštvaná, lze ji uplatit čokoládou. Mezi její záliby patří střelba ze zbraní, rybaření a hraní stříleček. Je děsný egoista a ráda manipuluje lidmi ve svůj prospěch, ale i tak ji všichni milují."
-    "psycho":
-    "joorre":
-    "kapor": "/me Kapor Itory je Itory. Je hospodský. Je kapor. Je to hospodský kapor Itory :bangbang: a velký milovník Tess. Často musel Tess upozorňovat, když hrál nevhodný song a on byl v té době rDj. Je to prostě náš kapor. >(°o°)<"
-    "lemon": "/me LemonInYourEyes byl dříve známí pod jménem RoDoDenDron.  Není rád sám, je tvrdohlavý a často dokáže překvapit. Poslouchá mainstream, dubstep a trap.  Mezi jeho záliby patří hraní LOL, airsoft, rafty a různé ruční práce."
-    "misul": "/me Mušul máá ráda dobrou hudbu a pokec s fajn lidmi. Miluje seriály a čtení knih. Je svá, bezstarostná a často afk!"
+    "afk": "/me Hlásím, že %%NAME%% bude na nějakou dobu AFK. :V: ",
+    "thomas": "/me ThømasB je milý a hodný člověk, ale nesmíte ho naštvat. Nesnáší lež, faleš a má rád ty, kteří mají rádi ho. Někdy bývá náladový, ale má rád srandu a dokáže rozesmát. Nesnáší škemrání o staff.",
+    "germ": "/me GEЯM je náladový, ale nedává to najevo. S nikým se nesere a je nenápadný troll využívající sarkasmu a ironie… a to že hodně. Nesnáší, když má někdo jiný taky pandu. Miluje epickou hudbu, je anime maniak a spamer. Často bývá netrpělivý a nepozorný.",   
+    "sumer": "me sumer4ever miluje jízdu na kole. Je klidné a mírumilovné povahy a snadno se nenaštve, ale když se to někomu podaří, tak to stojí za to… Občas je tvrdohlavý a je pro každou srandu. Má přezdívku sumec. >(°>__<°)<",
+    "nicmoc": "/me [NicMoc.Dj] je strašný flegmatik. Baví ho posilování, běh a občas hraje WOT. Nepokoušejte se ho naštvat nebo špatně skončíte. Ale jinak je s ním sranda a rád si dělá srandu z ostatních.",
+    "bot": "/me HJV BøT je chat bot upravený, tak aby vystihoval naši roomku. Má spoustu „speciálních“ příkazů, které je potřeba brát s nadsázkou. Hlavním správcem je Tessi Tess. Je kompletně v češtině a má i speciální jazykový balíček, který vytvořil Iralli.",
+    "dykobraz": "/me",
+    "franta": "/me Franta72 je někdy náladový týpek, ale vždy je nějaký způsob, jak si s ním pokecat. Nemá rád, když mu někdo lže. Miluje rap, ale poslouchá v podstatě všechno. Mezi jeho zájmy patří hokej a šipky.",
+    "pesos": "/me #Pesos69 je totální blb, co neumí spolupracovat, je líný, neschopný a naprostý flegmatik. Jinak je s ním sranda, jenom občas lidem leze na nervy.",
+    "tessi": "/me Tessi Tess nesnese samotu. Bývá náladová, a když je naštvaná, lze ji uplatit čokoládou. Mezi její záliby patří střelba ze zbraní, rybaření a hraní stříleček. Je děsný egoista a ráda manipuluje lidmi ve svůj prospěch, ale i tak ji všichni milují.",
+    "psycho": "/me",
+    "joorre": "/me",
+    "kapor": "/me Kapor Itory je Itory. Je hospodský. Je kapor. Je to hospodský kapor Itory :bangbang: a velký milovník Tess. Často musel Tess upozorňovat, když hrál nevhodný song a on byl v té době rDj. Je to prostě náš kapor. >(°o°)<",
+    "lemon": "/me LemonInYourEyes byl dříve známí pod jménem RoDoDenDron.  Není rád sám, je tvrdohlavý a často dokáže překvapit. Poslouchá mainstream, dubstep a trap.  Mezi jeho záliby patří hraní LOL, airsoft, rafty a různé ruční práce.",
+    "misul": "/me Mušul máá ráda dobrou hudbu a pokec s fajn lidmi. Miluje seriály a čtení knih. Je svá, bezstarostná a často afk!",
     "yuna": "/me Уυηα Ɍɣσkσ Je nejlepší, nejchytřejší a nejkrásnější… Prostě egoista. Rada hraje lolko, miluje anime a čokoládu. Je lakomá a nechce se dělit. Ve zkratce Yuna je kripl, ale všichni z A-teamu ji mají rádi."
 
 
