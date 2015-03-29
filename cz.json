@@ -5,7 +5,7 @@
     "datarestored": "Předchozí data úspěšně načtena.",
     "greyuser": "Pouze vyhazovači a výše mohou zapnout bota.",
     "bouncer": "Bot nemůže posouvat lidi, když je vyhazovač.",
-    "online": "/me %%BOTNAME%% v%%VERSION%% online!",
+    "online": "/me %%BOTNAME%% v%%VERSION%% online!", 
 
 
     "welcome": "/me Vítej @%%NAME%%",
@@ -150,7 +150,7 @@
     "sumer": "me sumer4ever miluje jízdu na kole. Je klidné a mírumilovné povahy a snadno se nenaštve, ale když se to někomu podaří, tak to stojí za to… Občas je tvrdohlavý a je pro každou srandu. Má přezdívku sumec. >(°>__<°)<",
     "nicmoc": "/me [NicMoc.Dj] je strašný flegmatik. Baví ho posilování, běh a občas hraje WOT. Nepokoušejte se ho naštvat nebo špatně skončíte. Ale jinak je s ním sranda a rád si dělá srandu z ostatních.",
     "bot": "/me HJV BøT je chat bot upravený, tak aby vystihoval naši roomku. Má spoustu „speciálních“ příkazů, které je potřeba brát s nadsázkou. Hlavním správcem je Tessi Tess. Je kompletně v češtině a má i speciální jazykový balíček, který vytvořil Iralli.",
-    "dykobraz": "/me",
+    "dykobraz": "/me Dykobraz je kliďas, pohodář a všechno bere s humorem. Miluje cz/sk rap, hodně poslouchá Ektora, Separa, ATMO...  Jen tak se nenaštve a většinu času bývá afk.",
     "franta": "/me Franta72 je někdy náladový týpek, ale vždy je nějaký způsob, jak si s ním pokecat. Nemá rád, když mu někdo lže. Miluje rap, ale poslouchá v podstatě všechno. Mezi jeho zájmy patří hokej a šipky.",
     "pesos": "/me #Pesos69 je totální blb, co neumí spolupracovat, je líný, neschopný a naprostý flegmatik. Jinak je s ním sranda, jenom občas lidem leze na nervy. Pokud jsou v roomce nepokoje nejde pro ban daleko.",
     "tessi": "/me Tessi Tess nesnese samotu. Bývá náladová, a když je naštvaná, lze ji uplatit čokoládou. Mezi její záliby patří střelba ze zbraní, rybaření a hraní stříleček. Je děsný egoista a ráda manipuluje lidmi ve svůj prospěch, ale i tak ji všichni milují.",
