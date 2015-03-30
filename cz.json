@@ -163,7 +163,7 @@
     "back": "/me %%NAME%% BACK!",
     "bitch": "/me @%%NAMETO%%, @%%NAMEFROM%% %%BITCH%%",
     "havebitch": "/me Napiš !bitch @user a můžeš mít svou osobní bitch.",
-    "nouserbitch": "/me Uživatel %%NAME%% zbabělel utekl, proto nemůže být tvoje bitch.",
+    "nouserbitch": "/me Uživatel %%NAME%% zbaběle utekl, proto nemůže být tvoje bitch.",
     "selfbitch": "/me Hele hele brzdi. Je fajn mít velké ego, ale být sám/sama svoje osobní bitch, to je trošku moc."
 
 }
