@@ -162,6 +162,7 @@
     "yuna": "/me Уυηα Ɍɣσkσ je nejlepší, nejchytřejší a nejkrásnější… prostě egoista. Rada hraje lolko, miluje anime a čokoládu. Je lakomá a nechce se dělit. Ve zkratce Yuna je kripl, ale všichni z A-teamu ji mají rádi.",
     "back": "/me %%NAME%% BACK!",
     "selfbitch": "/me Hele hele. Vím, že jsi egoista, ale až tak velký?? Přece nebudeš sám/sama sobě bitch.",
-    "nouserbitch": "/me %%NAME%% zbaběle utekl/a, tak nemůže být tvoje bitch"
+    "nouserbitch": "/me %%NAME%% zbaběle utekl/a, tak nemůže být tvoje bitch.",
+    "havebitch": "/me Napiš !bitch @user a můžeš mít svou osobní bitch."
 
 }
