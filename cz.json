@@ -17,7 +17,7 @@
 
 
     "isopen": "/me Ruleta je spuštěna! Napište !join pro přihlášení!",
-    "winnerpicked": "/me A vítěz byl vybrán! @%%NAME%% je přesunut/a na pozici %%POSITION%%..",
+    "winnerpicked": "/me A vítěz byl vybrán! @%%NAME%% je přesunut/a na pozici %%POSITION%%.",
 
 
     "alreadyadding": "/me Uživatel byl již přidán! Změna pozice na pozici %%POSITION%%.",
