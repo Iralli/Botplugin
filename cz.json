@@ -40,7 +40,7 @@
     "askskip": "/me @%%NAME%%, nežádej o skip.",
     "spam": "/me @%%NAME%%, prosím nespamuj.",
     "roomadvertising": "/me @%%NAME%%, nedělej tady reklamu na jiné roomky.",
-    "adfly": "/me @%%NAME%%, prosím používej stejný autowoot jako my. Používáme OrigemWoot:  http://origem-woot.com/",
+    "adfly": "/me @%%NAME%%, prosím používej stejný autowoot jako my. Používáme OrigemWoot:  http://hjv.wbs.cz/Autowoot.html",
 
 
     "invalidtime": "/me [@%%NAME%%] Nebyl rozeznán čas, který jsi zadal/a.",
@@ -82,7 +82,7 @@
     "maximumafktimeset": "/me [@%%NAME%%] Maximální AFK čas nastaven na %%TIME%% minut.",
     "afkstatusreset": "/me [@%%NAME%%] Obnovil/a AFK limit uživateli @%%USERNAME%%.",
     "inactivefor": "/me [@%%NAME%%] @%%USERNAME%% je v roomce po dobu %%TIME%%.",
-    "autowoot": "/me Autowoot: http://origem-woot.com/",
+    "autowoot": "/me Autowoot: http://hjv.wbs.cz/Autowoot.html",
     "brandambassador": "/me Brand Ambassador slouží jako hlas uživatelů plug.dj. Podporují akce, pomáhají komunitám, sdílejí je na plug.dj, který je celosvětový. Pro více informací: https://plug.dj/ba.",
     "bouncerplusrank": "/me [@%%NAME%%] Musíš být manažer, abys mohl/a aktivovat Bouncer+.",
     "chatcleared": "/me [@%%NAME%%] Promazal/a chat.",
