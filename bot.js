@@ -5,7 +5,7 @@
  */
 
 
-(function () {
+ (function () {
 
     API.getWaitListPosition = function(id){
         if(typeof id === 'undefined' || id === null){
@@ -40,9 +40,9 @@
 
     var subChat = function (chat, obj) {
         if (typeof chat === "undefined") {
-            API.chatLog("/em [Error] Tohle ti nevyšlo. He hé. :P ");
-            console.log("/em [Error] Tohle ti nevyšlo. He hé. :P ");
-            return "/em [Error] Tohle ti nevyšlo. He hé. :P ";
+            API.chatLog("Chybí text zprávy.");
+            console.log("Chybí text zprávy.");
+            return "/em [Error] Nebyla nalezena zpráva.";
         }
         var lit = '%%';
         for (var prop in obj) {
@@ -54,7 +54,7 @@
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
-        $.get("https://rawgit.com/Iralli/Botplugin/master/langIndex.json", function (json) {
+        $.get("https://cdn.rawgit.com/Iralli/Botplugin/master/langIndex.json", function (json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== "undefined") {
                 langIndex = json;
@@ -176,30 +176,29 @@
 
     var botCreator = "Matthew (Yemasthui)";
     var botMaintainer = "Benzi (Quoona)"
-    var botCreatorIDs = ["3851534", "3934992", "4105209"];
+    var botCreatorIDs = ["3851534", "4105209"];
 
     var basicBot = {
-        version: "erze HJVbot.69",
-        status: true,
-        name: "HJVbot",
+        version: "CZ 1.0.0",
+        status: false,
+        name: "TBMbot",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/Iralli/Botplugin/master/bot.js",
-        cmdLink: "http://git.io/245Ppg",
-        chatLink: "https://rawgit.com/Iralli/Botplugin/master/cz.json",
+        scriptLink: "https://googledrive.com/host/0By7K1cTbnJlzRXI5U2U5em9NSkE",
+        cmdLink: "http://hjv.wbs.cz/Chat-Bot.html",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "HJVbot",
+            botName: "TBMbot",
             language: "czech",
-            chatLink: "https://rawgit.com/Iralli/Botplugin/master/cz.json",
+            chatLink: "https://googledrive.com/host/0By7K1cTbnJlzeXFxNU1rbVdEU00",
             startupCap: 200, // 1-200
-            startupVolume: 0, // 0-100
+            startupVolume: 100, // 0-100
             startupEmoji: true, // true or false
-            maximumAfk: 120,
+            maximumAfk: 60,
             afkRemoval: false,
-            maximumDc: 60,
+            maximumDc: 120,
             bouncerPlus: true,
             blacklistEnabled: true,
             lockdownEnabled: false,
@@ -207,40 +206,39 @@
             maximumLocktime: 10,
             cycleGuard: true,
             maximumCycletime: 10,
-            voteSkip: false,
-            voteSkipLimit: 10,
+            voteSkip: true,
+            voteSkipLimit: 20,
+            historySkip: true,
             timeGuard: true,
-            maximumSongLength: 10,
-            autodisable: true,
-            commandCooldown: 30,
+            maximumSongLength: 08.30,
+            autodisable: false,
+            commandCooldown: 0.0000000000000000000000000001,
             usercommandsEnabled: true,
             lockskipPosition: 3,
             lockskipReasons: [
-                ["theme", "This song does not fit the room theme. "],
-                ["op", "This song is on the OP list. "],
-                ["history", "This song is in the history. "],
-                ["mix", "You played a mix, which is against the rules. "],
-                ["sound", "The song you played had bad sound quality or no sound. "],
-                ["nsfw", "The song you contained was NSFW (image or sound). "],
-                ["unavailable", "The song you played was not available for some users. "]
+                ["theme", "Tenhle song není vhodný pro naši roomku. "],
+                ["op", "Tenhle song je na OP seznamu. "],
+                ["history", "Tenhle song je v historii. "],
+                ["mix", "Tenhle song je v rozporu s našimi pravidly. "],
+                ["sound", "Tenhle song má buď špatnou kvalitu, nebo to není song. "],
+                ["nsfw", "Tenhle song je NSFW (obraz nebo zvuk). "],
+                ["unavailable", "Tenhle song nebyl dostupný pro všechny uživatele. "]
             ],
             afkpositionCheck: 15,
             afkRankCheck: "ambassador",
             motdEnabled: false,
             motdInterval: 5,
-            motd: "Temporary Message of the Day",
+            motd: "",
             filterChat: true,
-            etaRestriction: false,
+            etaRestriction: true,
             welcome: true,
             opLink: null,
-            rulesLink: null,
             themeLink: null,
-            fbLink: null,
             youtubeLink: null,
-            website: null,
+            website: "",
             intervalMessages: [],
             messageInterval: 5,
-            songstats: false,
+            songstats: true,
             commandLiteral: "!",
             blacklists: {
                 NSFW: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
@@ -256,9 +254,21 @@
             usercommand: true,
             allcommand: true,
             afkInterval: null,
-            autoskip: false,
+            autoskip: true,
             autoskipTimer: null,
             autodisableInterval: null,
+            autodisableFunc: function () {
+                if (basicBot.status && basicBot.settings.autodisable) {
+                    API.sendChat('!afkdisable');
+                    API.sendChat('!joindisable');
+                }
+            },
+            queueing: 0,
+            queueable: true,
+            currentDJID: null,
+            historyList: [],
+            cycleTimer: setTimeout(function () {
+            }, 1),
             roomstats: {
                 accountName: null,
                 totalWoots: 0,
@@ -298,7 +308,8 @@
                     var ind = Math.floor(Math.random() * basicBot.room.roulette.participants.length);
                     var winner = basicBot.room.roulette.participants[ind];
                     basicBot.room.roulette.participants = [];
-                    var pos = Math.floor((Math.random() * API.getWaitList().length) + 1);
+                    var pos0 = [1]
+					var pos = pos0[Math.floor(Math.random() * pos0.length)];
                     var user = basicBot.userUtilities.lookupUser(winner);
                     var name = user.username;
                     API.sendChat(subChat(basicBot.chat.winnerpicked, {name: name, position: pos}));
@@ -848,7 +859,7 @@
                 }
             }
 
-            var alreadyPlayed = false;
+            /*var alreadyPlayed = false;
             for (var i = 0; i < basicBot.room.historyList.length; i++) {
                 if (basicBot.room.historyList[i][0] === obj.media.cid) {
                     var firstPlayed = basicBot.room.historyList[i][1];
@@ -861,6 +872,23 @@
             }
             if (!alreadyPlayed) {
                 basicBot.room.historyList.push([obj.media.cid, +new Date()]);
+            }*/
+
+            if (basicBot.settings.historySkip) {
+                var alreadyPlayed = false;
+                var apihistory = API.getHistory();
+                var name = obj.dj.username;
+                for (var i = 0; i < apihistory.length; i++) {
+                    if (apihistory[i].media.cid === obj.media.cid) {
+                        API.sendChat(subChat(basicBot.chat.songknown, {name: name}));
+                        API.moderateForceSkip();
+                        basicBot.room.historyList[i].push(+new Date());
+                        alreadyPlayed = true;
+                    }
+                }
+                if (!alreadyPlayed) {
+                    basicBot.room.historyList.push([obj.media.cid, +new Date()]);
+                }
             }
             var newMedia = obj.media;
             if (basicBot.settings.timeGuard && newMedia.duration > basicBot.settings.maximumSongLength * 60 && !basicBot.room.roomevent) {
@@ -938,7 +966,7 @@
                 API.sendChat(subChat(basicBot.chat.caps, {name: chat.un}));
                 return true;
             }
-            msg = msg.toLowerCase();
+			msg = msg.toLowerCase();
             if (msg === 'skip') {
                 API.sendChat(subChat(basicBot.chat.askskip, {name: chat.un}));
                 return true;
@@ -1373,8 +1401,8 @@
                     }
                 }
             },
-
-            afkresetCommand: {
+			
+			afkresetCommand: {
                 command: 'afkreset',
                 rank: 'bouncer',
                 type: 'startsWith',
@@ -1482,7 +1510,7 @@
                 }
             },
 
-            banCommand: {
+			banCommand: {
                 command: 'ban',
                 rank: 'bouncer',
                 type: 'startsWith',
@@ -1500,7 +1528,7 @@
                 }
             },
 
-            blacklistCommand: {
+			blacklistCommand: {
                 command: ['blacklist', 'bl'],
                 rank: 'bouncer',
                 type: 'startsWith',
@@ -1532,51 +1560,7 @@
                 }
             },
 
-          bitchCommand: {
-                command: 'bitch',
-                rank: 'bouncer',
-                type: 'startsWith',
-                cookies: ['se tě ptá, jestli nechceš být jeho/její bitch.',
-				    'tě chce do svého harému.',
-					'tě pasuje na svou osobní bitch.',
-					'chce po tobě ruční práce. Však víš, co tím myslím...',
-					'ti sahá kam nemá.',
-					'má s tebou jisté plány...',
-					'si s tebou chce pohrát.',
-					'si s tebou chce dát sprchu.',
-					'si chce líznout.',
-                    'po tobě chce službičku.'
-                ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.getfacka);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserfacka, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
-                            }
-                        }
-                    }
-                }
-            },  
-			
-			blinfoCommand: {
+            blinfoCommand: {
                 command: 'blinfo',
                 rank: 'bouncer',
                 type: 'exact',
@@ -1596,7 +1580,20 @@
                 }
             },
 
-            bouncerPlusCommand: {
+            botCommand: {
+                command: 'bot',
+                rank: 'user',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        API.sendChat(basicBot.chat.bot)
+                    }
+                }
+    		},
+			
+			bouncerPlusCommand: {
                 command: 'bouncer+',
                 rank: 'mod',
                 type: 'exact',
@@ -1660,26 +1657,9 @@
                 type: 'startsWith',
                 cookies: ['ti daroval/a čokoládovou sušenku.',
                     'ti daroval/a starou plesnivou sušenku. FUJ!',
-                    'ti daroval/a sušenku, ale bylo v ní moc cukru. Blé.',
-                    'ti daroval/a čokoládovou sušenku. Počkat... To je rasistické! Je černá!',
                     'ti daroval/a sušenku s rozinkami.',
-                    'ti daroval/a sušenku štěstí. Stojí tam: "Germ tě sleduje!" :eyes: ',
-                    'ti daroval/a sušenku štěstí. Stojí tam: "Kup Tessi čokoládu!"',
-                    'ti daroval/a sušenku štěstí. Stojí tam: "Jestli tu je Thomas, pošli mu srdíčko." :heart: ',
-                    'ti daroval/a sušenku štěstí. Stojí tam: "Sumer chce taky sušenku. Pokud tu je, pošli mu ji."  :cookie: ',
-                    'ti daroval/a sušenku štěstí. Stojí tam: "Pozvi někoho do sklepa!"',
-                    'ti daroval/a sušenku štěstí. Stojí tam: "Co můžeš udělat dnes, odlož na zítra. Zítra je taky den."',
-                    'ti daroval/a sušenku štěstí. Stojí tam: "Jsem zajatec v továrně na sušenky štěstí. POMOOOC!"',
-                    'ti daroval/a sušenku štěstí. Stojí tam: "Osoba, která to čte je výjimečná."',
-                    'ti daroval/a sušenku štěstí. Stojí tam: "Miluji tě." :heart: ',
-                    'ti daroval/a zlatou sušenku. Nemůžeš ji sníst, protože je ze zlata...',
-                    'ti daroval/a sušenku Oreo se sklenicí mléka.',
-                    'ti daroval/a duhovou sušenku, která je pečena s láskou. :heart:',
-                    'ti daroval/a modrou sušenku. Moment... Sušenka s viagrou...',
-					'ti daroval/a speciální pony sušenku. Pekla ji Pinkie Pie."',
-					'ti daroval/a sušenku. POZOR! Je otrávená!',
-					'ti chtěl/a darovat sušenku, ale už ji snědl/a.',
-                    'ti daroval/a čerstvě upečenou sušenku. Voní úžasně.'
+					'ti daroval/a čerstvou sušenku. Voní úžasně.',
+					'ti daroval/a sušenku.'
                 ],
                 getCookie: function () {
                     var c = Math.floor(Math.random() * this.cookies.length);
@@ -1803,7 +1783,7 @@
                             API.sendChat(subChat(basicBot.chat.toggleoff, {name: chat.un, 'function': basicBot.chat.voteskip}));
                         }
                         else {
-                            basicBot.settings.motdEnabled = !basicBot.settings.motdEnabled;
+                            basicBot.settings.voteSkip = !basicBot.settings.voteSkip;
                             API.sendChat(subChat(basicBot.chat.toggleon, {name: chat.un, 'function': basicBot.chat.voteskip}));
                         }
                     }
@@ -1833,8 +1813,8 @@
                     }
                 }
             },
-
-            /*deletechatCommand: {
+			
+			/*deletechatCommand: {
                 command: 'deletechat',
                 rank: 'mod',
                 type: 'startsWith',
@@ -1859,8 +1839,8 @@
                     }
                 }
             },*/
-
-            emojiCommand: {
+			
+			emojiCommand: {
                 command: 'emoji',
                 rank: 'user',
                 type: 'exact',
@@ -1900,49 +1880,7 @@
                     }
                 }
             },
-           
-		    fackaCommand: {
-                command: 'facka',
-                rank: 'residentdj',
-                type: 'startsWith',
-                cookies: ['ti dal/a facku!!!',
-				    'ti vrazil/a facku!!!',
-                    'ti pleskl/a!!!',
-					'ti tak liskl/a, že ten obtisk na tváři ti zůstane minimálně 3 dny!!!"',
-					'ti takovou vrazil/a, že jsi druhou koupil/a o zeď!!!"',
-					'ti tak vrazil/a takovou facku, že tě budou muset seškrábnout ze zdi!!!',
-					'ti takovou vrazil/a, že sotva stojíš!!!"',
-					'ti dal/a takovou facku, že tě ani google nenajde!!!'
-                ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
 
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.getfacka);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserfacka, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
-                            }
-                        }
-                    }
-                }
-            },
-            
 			fbCommand: {
                 command: 'fb',
                 rank: 'user',
@@ -1951,11 +1889,10 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (typeof basicBot.settings.fbLink === "string")
-                            API.sendChat(subChat(basicBot.chat.facebook, {link: basicBot.settings.fbLink}));
+                        API.sendChat(basicBot.chat.facebook)
                     }
                 }
-            },
+    		},
 
             filterCommand: {
                 command: 'filter',
@@ -1977,50 +1914,6 @@
                 }
             },
 
-			fuckCommand: {
-                command: 'fuck',
-                rank: 'user',
-                type: 'startsWith',
-                cookies: ['ti vzkazuje: "Nech mě na pokoji!!!"',
-                    'ti vzkazuje: "Neštvi mě!!!"',
-					'ti vzkazuje: "Jdi do háje."',
-					'ti vzkazuje: "Ještě chvíli mě štvi a takovou ti vrazím, že tě vlastní máma nepozná!!!"',
-					'tě tak moc miluje, že by tě nejradší stáhl/a za živa z kůže!!!"',
-					'ti vzkazuje: "Že tě máma radši nespolkla..."',
-					'by tě nejradši zakopal/a 2 metry pod zem a postavil/a na tobě obchoďák."',
-					'ti vzkazuje: "Skoč do zdi a pozdravuj cihly."',
-					'ti vzkazuje: "Skoč do zdi a přikryj se omítkou."',
-					'ti vzkazuje: "Šlápni na lego a zakopni o skříň!!!"'
-                ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.getfacka);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserfacka, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
-                            }
-                        }
-                    }
-                }
-            },
-            
 			helpCommand: {
                 command: 'help',
                 rank: 'user',
@@ -2029,59 +1922,27 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        var link = "http://i.imgur.com/SBAso1N.jpg";
+                        var link = "TBMbot příkazy: ";
                         API.sendChat(subChat(basicBot.chat.starterhelp, {link: link}));
                     }
                 }
             },
 
-            hugCommand: {
-                command: 'hug',
-                rank: 'user',
-                type: 'startsWith',
-                cookies: ['ti posílá objetí http://i.imgur.com/EZXOvFl.gif',
-				'http://i.imgur.com/npZwdNJ.gif'
-                ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.getfacka);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserfacka, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
-                            }
-                        }
-                    }
-                }
-            },
-			
-			joinCommand: {
-                command: 'join',
-                rank: 'user',
+			historyskipCommand: {
+                command: 'historyskip',
+                rank: 'bouncer',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (basicBot.room.roulette.rouletteStatus && basicBot.room.roulette.participants.indexOf(chat.uid) < 0) {
-                            basicBot.room.roulette.participants.push(chat.uid);
-                            API.sendChat(subChat(basicBot.chat.roulettejoin, {name: chat.un}));
+                        if (basicBot.settings.historySkip) {
+                            basicBot.settings.historySkip = !basicBot.settings.historySkip;
+                            API.sendChat(subChat(basicBot.chat.toggleoff, {name: chat.un, 'function': basicBot.chat.historyskip}));
+                        }
+                        else {
+                            basicBot.settings.historySkip = !basicBot.settings.historySkip;
+                            API.sendChat(subChat(basicBot.chat.toggleon, {name: chat.un, 'function': basicBot.chat.historyskip}));
                         }
                     }
                 }
@@ -2108,7 +1969,7 @@
                 }
             },
 
-            kickCommand: {
+			kickCommand: {
                 command: 'kick',
                 rank: 'bouncer',
                 type: 'startsWith',
@@ -2155,7 +2016,7 @@
 
             killCommand: {
                 command: 'kill',
-                rank: 'manager',
+                rank: 'bouncer',
                 type: 'exact',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -2188,7 +2049,7 @@
                 }
             },
 
-            linkCommand: {
+			linkCommand: {
                 command: 'link',
                 rank: 'user',
                 type: 'exact',
@@ -2259,7 +2120,7 @@
                     else {
                         if (basicBot.settings.lockGuard) {
                             basicBot.settings.lockGuard = !basicBot.settings.lockGuard;
-                            return API.sendChat(subChat(basicBot.chat.toggleoff, {name: chat.un, 'function': basicBot.chat.lockdown}));
+                            return API.sendChat(subChat(basicBot.chat.toggleoff, {name: chat.un, 'function': basicBot.chat.lockguard}));
                         }
                         else {
                             basicBot.settings.lockGuard = !basicBot.settings.lockGuard;
@@ -2376,7 +2237,7 @@
                 }
             },
 
-            maxlengthCommand: {
+			maxlengthCommand: {
                 command: 'maxlength',
                 rank: 'manager',
                 type: 'startsWith',
@@ -2394,8 +2255,8 @@
                     }
                 }
             },
-
-            motdCommand: {
+			
+			motdCommand: {
                 command: 'motd',
                 rank: 'bouncer',
                 type: 'startsWith',
@@ -2541,8 +2402,8 @@
                     }
                 }
             },
-
-            opCommand: {
+			
+			opCommand: {
                 command: 'op',
                 rank: 'user',
                 type: 'exact',
@@ -2555,8 +2416,8 @@
                     }
                 }
             },
-
-            pingCommand: {
+			
+			pingCommand: {
                 command: 'ping',
                 rank: 'user',
                 type: 'exact',
@@ -2567,186 +2428,8 @@
                         API.sendChat(basicBot.chat.pong)
                     }
                 }
-            },
+    		},
 
-            ponyCommand: {
-                command: 'pony',
-                rank: 'user',
-                type: 'startsWith',
-                cookies: ['ti poslal/a http://img2.wikia.nocookie.net/__cb20121227194529/mlp/images/4/48/FANMADE_Rainbow_Dash_flying.png',
-				    'ti poslal/a poníka http://fc05.deviantart.net/fs70/f/2012/028/d/7/mlp__rainbow_dash_by_adrianabitesyou-d4nxunm.png',
-                    'ti poslal/a poníka http://fc01.deviantart.net/fs70/i/2013/312/8/5/fluttershy_sitting_by_thatguy1945-d6tghrn.png',
-					'ti poslal/a poníka http://fc08.deviantart.net/fs70/i/2012/098/a/9/happy_sitting_vector_by_landboom-d4vecyl.png',
-					'ti poslal/a poníka http://img2.wikia.nocookie.net/__cb20120708040811/mlp/images/b/bb/Canterlot_Castle_Pinkie_Pie_6.png',
-					'ti poslal/a poníka http://fc09.deviantart.net/fs70/i/2012/218/a/9/pinkie_pie___smiling_by_hawk9mm-d5086ef.png',
-					'ti poslal/a poníka http://fc06.deviantart.net/fs70/i/2012/276/3/1/applejack_vector_by_patekoro-d4rgywi.png',
-					'ti poslal/a poníka http://img1.wikia.nocookie.net/__cb20140821041541/mlp/images/3/39/FANMADE_Super-happy_Applejack.png',
-					'ti poslal/a poníka http://1.bp.blogspot.com/-IrxWMAAa59Y/VJcwMUclj1I/AAAAAAAAAYo/WrLGJd5dc9I/s1600/Tumblr_mxzwafbm7w1s88ss5o1_1280.png',
-					'ti poslal/a poníka http://cdn.playbuzz.com/cdn/e249123f-3b1b-4bc9-9487-f4ad1392ca1e/ed615fce-8368-4094-88a8-f6e9849cfdce.png',
-					'ti poslal/a poníka http://vignette2.wikia.nocookie.net/p__/images/4/4e/Twilight_Sparkle.png/revision/latest?cb=20130704150138&path-prefix=protagonist',
-					'ti poslal/a poníka http://fc02.deviantart.net/fs71/i/2012/074/b/1/mlp_twilight_sparkle_by_chicka1985-d4suj8x.png',
-					'ti poslal/a poníka http://fc00.deviantart.net/fs70/i/2012/074/4/d/mlp_luna_by_chicka1985-d4suihk.png',
-					'ti poslal/a poníka http://th03.deviantart.net/fs70/PRE/i/2013/190/d/c/nightmare_moon_by_stabzor-d6cnt8d.png',
-					'ti poslal/a poníka http://fc08.deviantart.net/fs71/f/2013/059/f/2/princess_cadence_by_matty4z-d5wkcz8.png',
-					'ti poslal/a poníka http://img3.wikia.nocookie.net/__cb20120913211732/mlp/images/3/3e/FANMADE_Princess_Celestia_Walking.png',
-                ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.getfacka);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserfacka, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
-                            }
-                        }
-                    }
-                }
-            },
-			
-			spamCommand: {
-                command: 'spam',
-                rank: 'user',
-                type: 'startsWith',
-                cookies: ['nemá nic lepšího na práci než tě spamovat.',
-				    'tě jen tak označil/a jestli žiješ.',
-                    'ti poslal/a 01010011010100000100000101001101.',
-					'tě tak moc miluje, až tě zbytečně označil/a.',
-					'ti poslal/a xkcny,xjfoiqwjdl.',
-					'ti poslal/a naprosto zbytečný mention, ale co už.',
-					'tě fkhjaůkrpšřzuhjodsůkvůo. SPAM bitch.',
-					'ti poslal/a moudro dne: "Spamuj a budeš spamován."',
-					'ti poslal/a spam a spam a spam.',
-					'ti poslal/a %53%50%41%4D%0D%0A%00.'
-                ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.getfacka);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserfacka, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
-                            }
-                        }
-                    }
-                }
-            },
-			
-			sklepCommand: {
-                command: 'sklep',
-                rank: 'user',
-                type: 'startsWith',
-                cookies: ['tě zve do sklepa. :/ ',
-				    'tě omráčil/a a odtáhl/a k sobě do sklepa.',
-                    's tebou chce navštívit sklep. :* ',
-					'ti vzkazuje: "Okamžitě se vrať ke mně do sklepa!!!"',
-					'ti vzkazuje: "Můj sklep čeká..."',
-					'ti vzkazuje: "Můj sklep je jinde, tak se tam vrať!!!"',
-					'by ti rád/a udělal/a malou prohlídku sklepa. :/ ',
-					's tebou chce navštívit sklep.',
-					'Pořádá ve sklepě super "párty" a ty jsi zván/a. :/ ',
-					'tě zve do sklepa. Půjdeš ať chceš nebo ne. :/ '
-                ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.getfacka);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserfacka, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
-                            }
-                        }
-                    }
-                }
-            },
-			
-			sexCommand: {
-                command: 'sex',
-                rank: 'residentdj',
-                type: 'startsWith',
-                cookies: ['tě zve k sobě do postele.',
-				    's tebou chce prožít "Noc plnou vášně."',
-                    'si s tebou chce užít. :/ ',
-					'by se s tebou rád víc seznámil/a. :/ ',
-					'se chce pomazlit. :/ ',
-					'by s tebou rád šel/a do parku. No však víš, jak to myslím. :/ '
-                ],
-                getCookie: function () {
-                    var c = Math.floor(Math.random() * this.cookies.length);
-                    return this.cookies[c];
-                },
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var msg = chat.message;
-
-                        var space = msg.indexOf(' ');
-                        if (space === -1) {
-                            API.sendChat(basicBot.chat.getfacka);
-                            return false;
-                        }
-                        else {
-                            var name = msg.substring(space + 2);
-                            var user = basicBot.userUtilities.lookupUserName(name);
-                            if (user === false || !user.inRoom) {
-                                return API.sendChat(subChat(basicBot.chat.nouserfacka, {name: name}));
-                            }
-                            else {
-                                return API.sendChat(subChat(basicBot.chat.cookie, {nameto: user.username, namefrom: chat.un, cookie: this.getCookie()}));
-                            }
-                        }
-                    }
-                }
-            },
-			
 			refreshCommand: {
                 command: 'refresh',
                 rank: 'manager',
@@ -2858,11 +2541,10 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (typeof basicBot.settings.rulesLink === "string")
-                            return API.sendChat(subChat(basicBot.chat.roomrules, {link: basicBot.settings.rulesLink}));
+                        API.sendChat(basicBot.chat.roomrules)
                     }
                 }
-            },
+    		},
 
             sessionstatsCommand: {
                 command: 'sessionstats',
@@ -2932,8 +2614,8 @@
                     }
                 }
             },
-
-            statusCommand: {
+			
+			statusCommand: {
                 command: 'status',
                 rank: 'bouncer',
                 type: 'exact',
@@ -2981,8 +2663,13 @@
                         else msg += 'OFF';
                         msg += '. ';
 
+                        msg += basicBot.chat.historyskip + ': ';
+                        if (basicBot.settings.historySkip) msg += 'ON';
+                        else msg += 'OFF';
+                        msg += '. ';
+
                         msg += basicBot.chat.voteskip + ': ';
-                        if (basicBot.settings.voteskip) msg += 'ON';
+                        if (basicBot.settings.voteSkip) msg += 'ON';
                         else msg += 'OFF';
                         msg += '. ';
 
@@ -3033,8 +2720,8 @@
                     }
                 }
             },
-
-            themeCommand: {
+			
+			themeCommand: {
                 command: 'theme',
                 rank: 'user',
                 type: 'exact',
@@ -3106,8 +2793,8 @@
                     }
                 }
             },
-
-            unbanCommand: {
+			
+			unbanCommand: {
                 command: 'unban',
                 rank: 'bouncer',
                 type: 'startsWith',
@@ -3301,13 +2988,12 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void (0);
                     else {
-                        if (typeof basicBot.settings.website === "string")
-                            API.sendChat(subChat(basicBot.chat.website, {link: basicBot.settings.website}));
+                        API.sendChat(basicBot.chat.website)
                     }
                 }
-            },
-
-            youtubeCommand: {
+    		},
+			
+			youtubeCommand: {
                 command: 'youtube',
                 rank: 'user',
                 type: 'exact',
