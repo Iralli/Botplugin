@@ -1,7 +1,7 @@
 {
-    "english": "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
+    "english": "https://cdn.jsdelivr.net/gh/Yemasthui/basicBot/lang/en.json",
     "portuguese": "https://rawgit.com/Yemasthui/basicBot/master/lang/pt.json",
-    "french": "https://rawgit.com/Yemasthui/basicBot/master/lang/fr.json",
-    "czech": "https://rawgit.com/Iralli/Botplugin/master/cz.json",
-    "troll": "https://rawgit.com/Iralli/Bot/master/trollbot.json"
+    "french": "https://cdn.jsdelivr.net/gh/Yemasthui/basicBot/lang/fr.json",
+    "czech": "https://cdn.jsdelivr.net/gh/Iralli/Botplugin/cz.json",
+    "troll": "https://cdn.jsdelivr.net/gh/Iralli/Bot/trollbot.json"
 }
